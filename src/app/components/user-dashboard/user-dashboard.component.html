@@ -1,0 +1,24 @@
+<div class="wait" *ngIf="isLoading">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <p>please wait for some time!!</p>
+</div>
+
+
+
+<div class="p-5  d-flex align-item-center justify-contentcenter" style="background: rgb(133, 59, 74);">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Image" [(ngModel)]="query">
+        <button class="input-group-text bg-primary text-white align-item-center" (click)="handleSearch()">Search here</button>
+    </div>
+
+</div>
+<div class="mt-2 pt-2">
+    <div class=" d-flex justify-content-center" style="flex-wrap:wrap;">
+        <div *ngFor="let photo of photos">
+            <img [src]="photo.src.medium" alt="">
+        </div>
+    </div>
+</div>
+<button class="btn btn-info form-control" *ngIf="photos.length > 0" (click)="handleMOre()">More</button>
